@@ -1,8 +1,8 @@
 #!/bin/bash
 SCRIPT=`realpath -s $0`
 path=`dirname $SCRIPT`
-source $path/lib/decoration.sh
-source $path/lib/support.sh
+source ${path}/lib/decoration.sh
+source ${path}/lib/support.sh
 localIp=$(hostname -I)
 publicIp=$(curl -s http://whatismyip.akamai.com/)
 
@@ -63,6 +63,7 @@ esac
 
 createPayload()
 {
+cd ${path}
 rm -rf ./tmp/* ./output/*
 ####################
 echo -e $yellow"Please insert the Local Host or choose one from below (your local ip if your target is in the same lan or else your public ip )" $resetCollor
